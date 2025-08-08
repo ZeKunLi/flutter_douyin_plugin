@@ -1,6 +1,6 @@
 name: dy
 description: a plugin with DouYin SDK
-version: 0.0.2
+version: 0.0.3
 authorization: 
 repository: https://github.com/LinHuanTanLy/flutter_douyin_plugin.git
 
