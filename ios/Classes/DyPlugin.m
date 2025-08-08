@@ -94,9 +94,11 @@ static DyPlugin *instance=nil;
 - (void) shareToEditPage:(NSDictionary *) options{
     NSArray *tempImgList=options[@"imgPathList"];
     NSArray *tempVideoList=options[@"videoPathList"];
+    NSNumber *shareAction=options[@"shareAction"];
 
     NSLog(@"tempImgListtempImgList is %@",tempImgList);
     NSLog(@"tempVideoList is %@",tempVideoList);
+    NSLog(@"shareAction%d",shareAction.intValue);
 
 
 
@@ -104,9 +106,9 @@ static DyPlugin *instance=nil;
     req.mediaType=DouyinOpenSDKShareMediaTypeImage;
     req.localIdentifiers=tempImgList;
     req.publishStory = YES;
-//    req.useNewShareAbility = YES; // 使用新转发能力
-    req.state = @"123121";
-    req.shareAction = DouyinOpenSDKShareTypeShareContentToIM;
+    req.useNewShareAbility = YES; // 使用新转发能力
+//    req.state = @"123121";
+    req.shareAction = shareAction.intValue;
 
     [req sendShareRequestWithCompleteBlock:^(DouyinOpenSDKShareResponse * _Nonnull Response) {
         NSString *alertString = nil;
