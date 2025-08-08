@@ -40,7 +40,8 @@ class Dy {
       String appId,
       String appTitle,
       String description,
-      String appUrl) {
+      String appUrl,
+      int shareAction) {
     return DyPlatform.instance.shareToEditPage(
         imgPathList,
         videoPathList,
@@ -50,6 +51,7 @@ class Dy {
         appId,
         appTitle,
         description,
-        appUrl);
+        appUrl,
+        shareAction);
   }
 }

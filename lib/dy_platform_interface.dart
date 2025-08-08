@@ -69,7 +69,8 @@ abstract class DyPlatform extends PlatformInterface {
       String appId,
       String appTitle,
       String description,
-      String appUrl) {
+      String appUrl,
+      int shareAction) {
     throw UnimplementedError('shareToEditPage() has not been implemented.');
   }
 }

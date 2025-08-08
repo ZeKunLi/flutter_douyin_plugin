@@ -48,7 +48,8 @@ class MockDyPlatform with MockPlatformInterfaceMixin implements DyPlatform {
       String appId,
       String appTitle,
       String description,
-      String appUrl) {
+      String appUrl,
+      int shareAction) {
     // TODO: implement shareToEditPage
     throw UnimplementedError();
   }

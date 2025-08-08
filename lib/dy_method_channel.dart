@@ -101,7 +101,8 @@ class MethodChannelDy extends DyPlatform {
       String appId,
       String appTitle,
       String description,
-      String appUrl) async {
+      String appUrl,
+      int shareAction) async {
     final result = await methodChannel.invokeMethod<String>(
         shareToPublish ? 'shareToPublishPage' : 'shareToEditPage', {
       "imgPathList": imgPathList,
@@ -112,6 +113,7 @@ class MethodChannelDy extends DyPlatform {
       "appTitle": appTitle,
       "description": description,
       "appUrl": appUrl,
+      "shareAction": shareAction,
     });
     debugPrint("shareToEditPage result is $result");
     return result;
