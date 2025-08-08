@@ -94,24 +94,29 @@ static DyPlugin *instance=nil;
 - (void) shareToEditPage:(NSDictionary *) options{
     NSArray *tempImgList=options[@"imgPathList"];
     NSArray *tempVideoList=options[@"videoPathList"];
-    
-    NSLog(@"tempImgList is %@",tempImgList);
-    NSLog(@"tempVideoList is %@",tempVideoList);
-    
 
-    
+    NSLog(@"tempImgListtempImgList is %@",tempImgList);
+    NSLog(@"tempVideoList is %@",tempVideoList);
+
+
+
     DouyinOpenSDKShareRequest *req = [[DouyinOpenSDKShareRequest alloc] init];
     req.mediaType=DouyinOpenSDKShareMediaTypeImage;
     req.localIdentifiers=tempImgList;
+    req.publishStory = YES;
+//    req.useNewShareAbility = YES; // 使用新转发能力
+    req.state = @"123121";
+    req.shareAction = DouyinOpenSDKShareTypeShareContentToIM;
+
     [req sendShareRequestWithCompleteBlock:^(DouyinOpenSDKShareResponse * _Nonnull Response) {
-           NSString *alertString = nil;
-           if (Response.errCode == 0) {
-               alertString = [NSString stringWithFormat:@"Share succeed"];
-           } else{
-               alertString = [NSString stringWithFormat:@"Share failed error code : %@ , error msg : %@", @(Response.errCode), Response.errString];
-           }
+        NSString *alertString = nil;
+        if (Response.errCode == 0) {
+            alertString = [NSString stringWithFormat:@"Share succeed"];
+        } else{
+            alertString = [NSString stringWithFormat:@"Share failed error code : %@ , error msg : %@", @(Response.errCode), Response.errString];
+        }
         NSLog(@"进到分享的回调里面了%@",alertString);
-       }];
+    }];
 }
 
 @end
